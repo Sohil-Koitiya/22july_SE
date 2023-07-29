@@ -1,0 +1,54 @@
+1. What is Software? What is Software Engineering?
+-> It it a Part of Computer that we can not touch physically. We can just see it.
+-> Software Engineering means how you can use your logic with computer programming and command 
+your computer to perform that operation.
+
+2. Explain types of Software?
+-> 1) Application Software :- It is the Software package who perform specific operation of the user.
+	eg:- Notepad,Zoom,Chrome,etc....
+   2) System Software :- It is the Software package who comes default with the system or operating System.
+	eg:- Notepad,Calculator,Settings,etc....
+   3) Driver Software :- It is the Software package who comes with operating system for using to other hardware device.
+	eg:- Headphone,Speaker,Mike,Camera,USB,etc....
+   4) Middleware Software :- It is the Software who performs bridge operation or communicate with two application.
+	1-> Database Middleware Software
+	2-> server Middleware Software
+   5) Programming Software :- It is the Software what we can use for programming or application development.
+	eg:- dev c, c++ , Eclipse ,VS Code, etc....
+
+3. What is SDLC?Explain each Phase of SDLC?
+-> Software Development Life Cycle.
+   There are 6 Phases of SDLC.
+   1) Requirement Gathering
+   2) Analysis
+   3) Designing
+   4) Programming / Coding
+   5) Testing
+   6) Maintainance
+
+   1) Requirement Gathering :- On that phase we have to go to the market any find the customers once we find the customer.
+                               we have to know requirement of the customer what they want to in his website or application.
+
+   2) Analysis :- We have all the requirements of the customer. Now we have to analyse the market what is the scenario and
+		  trend of the era.
+   
+   3) Designing :- We have to design the website forma like where is head, boxes, buttons, etc....
+
+   4) Programming / Coding :- Now we have to Code or Program that site what we have desided to perform and design.
+
+   5) Testing :- Once we had done the programming we have to test the Program quality.
+
+   6) Maintainance :- We have to Debuge the errors and fix them.
+
+4. what is DFD? Create a DFD diagram on Flipcart?
+->  Data Flow Diagram.
+
+
+
+5. What is Flowchart? Create a flowchart to make addition of two numbers.
+-> Flowchart is defining the flow of information or flow of application responding.
+
+
+
+   
+   	
