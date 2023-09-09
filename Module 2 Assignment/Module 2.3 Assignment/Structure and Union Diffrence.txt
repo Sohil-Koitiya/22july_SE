@@ -1,0 +1,3 @@
+Que :- what is the diffrence between structure and union?
+ans :-> structure hase a total 28 bytes value.
+	union has individual value is 20 bytes.
