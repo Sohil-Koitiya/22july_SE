@@ -1,0 +1,162 @@
+Table 1:-
+
+
+CREATE TABLE student
+(
+    Rollno int PRIMARY KEY AUTO_INCREMENT,
+    Name varchar(40),
+    Branch varchar(50)
+    
+)
+
+
+INSERT INTO `student` (`Rollno`, `Name`, `Branch`) VALUES (NULL, 'Jay', 'Computer Science'), 
+(NULL, 'Suhani', 'Electronic and Com'), (NULL, 'Kriti', 'Electronic and Com');
+
+CREATE TABLE exam
+(
+    S_code varchar(30),
+    Marks int,
+    P_code varchar(40),
+    
+    Rollno_fk int,
+    FOREIGN KEY(Rollno_fk) REFERENCES student(Rollno)
+    
+)
+
+INSERT INTO `exam` (`S_code`, `Marks`, `P_code`, `Rollno_fk`) VALUES ('CS11', '50', 'CS', '1'), 
+('CS12', '60', 'CS', '1'), ('EC101', '66', 'EC', '2'), ('EC102', '70', 'EC', '2'), ('EC101', '45', 'EC', '3'), ('EC102', '50', 'EC', '3');
+
+Table 2:-
+
+
+CREATE TABLE person
+(
+ 	First_Name Varchar(50),
+    Last_Name varchar(40),
+    Address varchar(40),
+    City varchar(40),
+    Age int
+    
+    
+    
+)
+
+
+INSERT INTO `person` (`First_Name`, `Last_Name`, `Address`, `City`, `Age`) VALUES ('Mickey', 'Mouse', '123 Fantasy Way', 'Anaheim', '73'), 
+('Bat', 'Man', 'Cavern Ave', 'Gotham', '54'), ('Wonder', 'Women', '987 Truth Way', 'Paradise', '39'), 
+('Donald', 'Duck', '555 Quack Street', 'Mallard', '65'), ('Bugs', 'Bunny', '567 Carrot Street', 'Rascal', '58'), 
+('Wiley', 'Coyote', '999 Acme Way', 'Canyon', '61'), ('Cat', 'Women', '234 Purrfect Street', 'Hairball', '32'), ('Tweety', 'Bird', '543', 'Itotltaw', '28');
+
+Table 3:-
+
+
+CREATE TABLE employee
+(
+    employee_id int PRIMARY KEY AUTO_INCREMENT,
+    First_name varchar(50),
+    Last_name varchar(40),
+    Salary int,
+    Joining_date varchar(50),
+    Department varchar(40)
+)
+
+
+INSERT INTO `employee` (`employee_id`, `First_name`, `Last_name`, `Salary`, `Joining_date`, `Department`) 
+VALUES (NULL, 'John', 'Abraham', '1000000', '01-JAN-13 12.00.00 AM', 'Banking'), 
+(NULL, 'Michael', 'Clarke', '800000', '01-JAN-13 12.00.00 AM', 'Insurance'), (NULL, 'Roy ', 'Thomas', '700000', '01-FEB-13 12.00.00 AM', 'Banking'), 
+(NULL, 'Tom', 'Jose', '600000', '01-FEB-13 12.00.00 AM', 'Insurance'), (NULL, 'Jerry', 'Pinto', '650000', '01-FEB-13 12.00.00 AM', 'Insurance'), 
+(NULL, 'Philip', 'Mathew', '750000', '01-JAN-13 12.00.00 AM', 'Services'), (NULL, 'TestName1', '123', '650000', '01-JAN-13 12.00.00 AM', 'Services'), 
+(NULL, 'TestName2', 'Lname%', '600000', '01-FRB-13 12.00.00 AM', 'Insurance');
+
+CREATE TABLE incentive
+(
+    employee_id_fk int,
+    FOREIGN KEY(employee_id) REFERENCES employee(employee_id),
+    
+    incentive_date varchar(50),
+    incentive_amount int
+    
+)
+
+INSERT INTO `incentive` (`employee_id_fk`, `incentive_date`, `incentive_amount`) VALUES ('1', '01-FEB-13', '5000'), 
+('2', '01-FEB-13', '3000'), ('3', '01-MARCH-13', '2000'), ('2', '01-MARCH-13', '5000'), ('5', '01-FEB-13', '6000'), 
+('3', '01-JULY-13', '8000'), ('4', '01-FEB-13', '3500'), ('6', '01-AUG-13', '7800');
+
+
+a) Get First_Name from employee table using Tom name “Employee Name”.
+-> SELECT * FROM employee WHERE First_name LIKE 'TOM'
+
+b)Get FIRST_NAME, Joining Date, and Salary from employee table.
+-> SELECT First_name,Joining_date,Salary FROM employee
+
+c) Get all employee details from the employee table order by First_Name Ascending and Salary descending?
+-> SELECT * FROM employee ORDER BY First_name ASC
+   SELECT * FROM employee ORDER BY Salary DESC
+
+d) Get employee details from employee table whose first name contains ‘J’.
+-> SELECT * FROM employee WHERE First_name LIKE 'J%'
+
+e) Get department wise maximum salary from employee table order by salary ascending?
+-> SELECT * FROM employee ORDER BY Salary ASC
+
+f) Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
+-> SELECT * FROM incentive WHERE incentive_amount > 3000
+
+g) Create After Insert trigger on Employee table which insert records in view table
+-> DELIMITER $$
+
+  CREATE TRIGGER insert_trigger AFTER INSERT ON Employee FOR EACH ROW
+  BEGIN
+
+  INSERT INTO test(First_name,Last_name,Salary,Joining_date,Department) VALUES(new.First_name,new.Last_name,new.Salary,new.Joining_date,new.Department,"Record Inserted!");
+
+
+
+  END
+
+
+
+Table 4:-
+
+CREATE TABLE salesperson
+(
+    sno int PRIMARY KEY AUTO_INCREMENT,
+    sname varchar(40),
+    city varchar(30),
+    comm varchar(30)
+)
+
+
+INSERT INTO `salesperson` (`sno`, `sname`, `city`, `comm`) VALUES (NULL, 'Peel', 'London', '.12'), 
+(NULL, 'Serres', 'San Jose', '.13'), (NULL, 'Motika', 'London', '.11'), (NULL, 'Rafkin', 'Barcelona', '.15'), (NULL, 'Axelrod', 'New York', '.1');
+
+
+CREATE TABLE customer
+(
+    cnm int PRIMARY KEY AUTO_INCREMENT,
+    cname varchar(40),
+    city varchar(50),
+    rating int,
+    
+    sno_fk int,
+    FOREIGN KEY(sno_fk) REFERENCES salesperson(sno)
+)
+
+
+INSERT INTO `customer` (`cnm`, `cname`, `city`, `rating`, `sno_fk`) VALUES (NULL, 'Hoffman', 'London', '100', '1'), 
+(NULL, 'Giovanne', 'Roe', '200', '5'), (NULL, 'Liu', 'San Jose', '300', '2'), (NULL, 'Grass', 'Barcelona', '100', '2'), 
+(NULL, 'Clemens', 'London', '300', '4'), (NULL, 'Pereira', 'Roe', '100', '3');
+
+
+b) Names and cities of all salespeople in London with commission above 0.12
+-> SELECT city="London" FROM salesperson WHERE comm>=.12
+
+c) All salespeople either in Barcelona or in London
+-> SELECT city = "Barcelona" OR city = "London" FROM salesperson
+
+d) All salespeople with commission between 0.10 and 0.12. (Boundary values should be excluded).
+-> SELECT * FROM salesperson WHERE comm BETWEEN .10 and .12
+
+e) All customers excluding those with rating <= 100 unless they are located in Rome
+-> SELECT city="Roe" FROM customer WHERE rating<=100
